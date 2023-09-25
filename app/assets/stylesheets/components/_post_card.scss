@@ -1,0 +1,36 @@
+.post-container {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 8px;
+  border: #4B527E 1px solid;
+  padding: 8px;
+  margin-bottom: 2em;
+
+  .post-info {
+    display: flex;
+    gap: 2em;
+  }
+}
+
+.purple-link {
+  text-decoration: none;
+  color: #4B527E;
+
+  &:hover {
+    font-weight: 500px;
+    color: #FF6969;
+  }
+}
+
+    .tag-container {
+      list-style: none;
+      display: flex;
+
+      li {
+        background-color: #4B527E;
+        padding: 4px;
+        border-radius: 8px;
+        color: white;
+        font-size: 16px;
+      }
+    }

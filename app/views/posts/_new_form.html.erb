@@ -1,0 +1,8 @@
+<div data-modal-target="form">
+  <h2>Add a new update</h2>
+  <%= simple_form_for @post do |f| %>
+    <%= f.input :title, label: 'Title' %>
+    <%= f.input :content %>
+    <%= f.button :submit, 'Add update', class: 'btn btn-primary' %>
+  <% end %>
+</div>

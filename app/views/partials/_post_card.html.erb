@@ -1,8 +1,13 @@
-  <% @posts.each do | post | %>
-    <p><%= post.user.username %> has </p>
-    <h5><%= post.title %></h5>
-    <p><%= post.date %></p>
+<% @posts.each do | post | %>
+  <div  class="post-container">
+    <div class="post-info">
+      <p><%= post.user.username %> has </p>
+      <h5><%= post.title %></h5>
+    </div>
+    <%# <p><%= post.date %>
+    <%= link_to "View update", "/", :class => "purple-link"%>
+  </div>
     <% post.tags.each do |tag| %>
-      <ul><li><%= tag.name %></li></ul>
+      <ul class="tag-container"><li><%= tag.name %></li></ul>
     <% end %>
-  <% end %>
+<% end %>

@@ -1,9 +1,11 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[destroy edit update]
+  before_action :set_post, only: %i[show destroy edit update]
   def index
     @posts = Post.all
     @posts_grouped_by_date = @posts.group_by { |post| post.date.to_date }
   end
+
+  def show; end
 
   def new
     @post = Post.new

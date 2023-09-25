@@ -4,4 +4,13 @@
   justify-content: center;
   gap: 1em;
   margin-top: 1em;
+  padding: auto 1em;
+  height: 50px;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  border-bottom: #FF6969 solid 1px;
+  li {
+    padding: 1em 0;
+  }
 }

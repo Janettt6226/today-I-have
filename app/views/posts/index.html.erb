@@ -1,18 +1,18 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path 'banner-today-i-have.jpeg' %>);">
   <h1>Today I have</h1>
 </div>
-<ul class="filter-bar">
+<ul class="filter-bar" data-controller="modal">
   <%# All posts %>
   <li><%= link_to "Home", posts_path %></li>
   <%# Add a new post %>
   <%# Get to be connected %>
-  <li><%= link_to "New update", new_post_path %></li>
+  <li data-action="click->modal#toggle">New update</li>
   <%# Filter posts by tags %>
   <%# Get to be connected %>
   <li>Tags</li>
   <%# Filter posts belonging to current user %>
   <%# Get to be connected %>
-  <li><%= link_to "My update",  %></li>
+  <li><%= link_to "My updates", "/" %></li>
 </ul>
 
 <div class="container">
