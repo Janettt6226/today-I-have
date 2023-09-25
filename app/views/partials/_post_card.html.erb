@@ -1,0 +1,8 @@
+  <% @posts.each do | post | %>
+    <p><%= post.user.username %> has </p>
+    <h5><%= post.title %></h5>
+    <p><%= post.date %></p>
+    <% post.tags.each do |tag| %>
+      <ul><li><%= tag.name %></li></ul>
+    <% end %>
+  <% end %>

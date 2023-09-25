@@ -1,0 +1,33 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path 'banner-today-i-have.jpeg' %>);">
+  <h1>Today I have</h1>
+</div>
+<ul class="filter-bar">
+  <%# All posts %>
+  <li><%= link_to "Home", posts_path %></li>
+  <%# Add a new post %>
+  <%# Get to be connected %>
+  <li><%= link_to "New update", new_post_path %></li>
+  <%# Filter posts by tags %>
+  <%# Get to be connected %>
+  <li>Tags</li>
+  <%# Filter posts belonging to current user %>
+  <%# Get to be connected %>
+  <li><%= link_to "My update",  %></li>
+</ul>
+
+<div class="container">
+  <% @posts_grouped_by_date.keys.sort.reverse.each do |date| %>
+    <% posts = @posts_grouped_by_date[date] %>
+    <h2>
+    <% if date == Date.today %>
+        Today
+      <% elsif date == Date.yesterday %>
+        Yesterday
+      <% else %>
+        <%= date.strftime('%A, %B %d, %Y') %>
+      <% end %>
+    </h2>
+    <%= render 'partials/post_card', posts: posts %>
+  <% end %>
+</div>
+<%= console %>
