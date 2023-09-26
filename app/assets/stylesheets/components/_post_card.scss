@@ -4,12 +4,16 @@
   border-radius: 8px;
   border: #4B527E 1px solid;
   padding: 8px;
-  margin-bottom: 2em;
+  margin-top: 1.5em;
 
   .post-info {
     display: flex;
     gap: 2em;
   }
+}
+
+.section-title {
+  margin-top: 1.5em;
 }
 
 .purple-link {
@@ -22,15 +26,17 @@
   }
 }
 
-    .tag-container {
-      list-style: none;
-      display: flex;
-
-      li {
-        background-color: #4B527E;
-        padding: 4px;
-        border-radius: 8px;
-        color: white;
-        font-size: 16px;
-      }
-    }
+.tag-container {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  gap: 1em;
+  .tag {
+    margin-top: 0.5em;
+    background-color: #4B527E;
+    padding: 4px;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+  }
+}

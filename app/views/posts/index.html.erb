@@ -18,7 +18,7 @@
 <div class="container">
   <% @posts_grouped_by_date.keys.sort.reverse.each do |date| %>
     <% posts = @posts_grouped_by_date[date] %>
-    <h2>
+    <h2 class="section-title">
     <% if date == Date.today %>
         Today
       <% elsif date == Date.yesterday %>

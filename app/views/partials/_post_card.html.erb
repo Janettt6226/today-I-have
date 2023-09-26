@@ -7,7 +7,9 @@
     <%# <p><%= post.date %>
     <%= link_to "View update", "/", :class => "purple-link"%>
   </div>
-    <% post.tags.each do |tag| %>
-      <ul class="tag-container"><li><%= tag.name %></li></ul>
+    <div class="tag-container">
+      <% post.tags.each do |tag| %>
+        <div class="tag"><%= tag.name %></div>
     <% end %>
+    </div>
 <% end %>
