@@ -3,7 +3,7 @@
     <div class="post-info">
       <p><%= post.user.username %> has </p>
       <h5><%= post.title %></h5>
-      <%= link_to "View more", "/", class: "purple-link", data: { action: "click->modal#open", modal_target: "less" }%>
+      <%= link_to "View more", "#", class: "purple-link", data: { action: "click->modal#open", modal_target: "less" }%>
     </div>
     <%# <p><%= post.date %>
     <div class="modal-container hide" data-modal-target="modal">

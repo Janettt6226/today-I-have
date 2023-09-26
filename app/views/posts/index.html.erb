@@ -1,12 +1,13 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path 'banner-today-i-have.jpeg' %>);">
   <h1>Today I have</h1>
 </div>
-<ul class="filter-bar">
-  <%# All posts %>
+<ul class="filter-bar" data-controller="new-form">
   <li><%= link_to "Home", posts_path %></li>
-  <%# Add a new post %>
-  <%# Get to be connected %>
-  <li>New update</li>
+  <li><%= link_to "New update", "#", data: { action: "click->new-form#show" }%></li>
+  <div class="new-form-container hide"
+       data-new-form-target="form">
+      <%= render partial: 'new_form', post: @post %>
+    </div>
   <%# Filter posts by tags %>
   <%# Get to be connected %>
   <li>Tags</li>

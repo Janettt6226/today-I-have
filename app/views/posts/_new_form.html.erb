@@ -1,8 +1,11 @@
-<div>
+<div class="form-background">
   <h2>Add a new update</h2>
   <%= simple_form_for @post do |f| %>
     <%= f.input :title, label: 'Title' %>
     <%= f.input :content %>
+    <%# Unique tags name %>
+    <h3>Select tags</h3>
+    <%= f.collection_check_boxes :tag_ids, Tag.all.order(:name), :id, :name%>
     <%= f.button :submit, 'Add update', class: 'btn btn-primary' %>
   <% end %>
 </div>

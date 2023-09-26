@@ -1,22 +1,27 @@
 class PostsController < ApplicationController
+  # before_action :authenticate_user!, only: %i[destroy new create]
   before_action :set_post, only: %i[show destroy edit update]
+
   def index
-    @posts = Post.all
+    @posts = Post.all.reverse
     @posts_grouped_by_date = @posts.group_by { |post| post.date.to_date }
+    @post = Post.new
   end
 
   def show; end
 
-  def new
-    @post = Post.new
-  end
+  # def new
+  #   @post = Post.new
+  # end
 
   def create
-    if current_user.sign_in?
+    if user_signed_in?
       @post = Post.new(post_params)
       @tag = Tag.new
-      if @post.save
-        redirect_to post_path(@post)
+      @post.user_id = current_user.id
+      @post.date = Date.today
+      if @post.save!
+        redirect_to posts_path
       else
         render :new, unprocessable_entity
       end
@@ -27,13 +32,9 @@ class PostsController < ApplicationController
 
   def edit; end
 
-  def update
+  def update; end
 
-  end
-
-  def destroy
-
-  end
+  def destroy; end
 
   private
 

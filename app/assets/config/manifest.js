@@ -5,3 +5,4 @@
 //= link controllers/hello_controller.js
 //= link controllers/index.js
 //= link controllers/modal_controller.js
+//= link controllers/new_form_controller.js
