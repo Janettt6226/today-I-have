@@ -1,15 +1,18 @@
 <% @posts.each do | post | %>
-  <div  class="post-container">
+  <div  class="post-container" data-controller="modal">
     <div class="post-info">
       <p><%= post.user.username %> has </p>
       <h5><%= post.title %></h5>
+      <%= link_to "View more", "/", class: "purple-link", data: { action: "click->modal#open", modal_target: "less" }%>
     </div>
     <%# <p><%= post.date %>
-    <%= link_to "View update", "/", :class => "purple-link"%>
-  </div>
-    <div class="tag-container">
-      <% post.tags.each do |tag| %>
-        <div class="tag"><%= tag.name %></div>
-    <% end %>
+    <div class="modal-container hide" data-modal-target="modal">
+      <%= render partial: 'show_modal', locals: { post: post } %>
     </div>
+  </div>
+  <div class="tag-container">
+    <% post.tags.each do |tag| %>
+      <div class="tag">#<%= tag.name.downcase %></div>
+    <% end %>
+  </div>
 <% end %>
