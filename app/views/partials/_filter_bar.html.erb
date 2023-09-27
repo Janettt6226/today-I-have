@@ -1,0 +1,14 @@
+ <ul class="filter-bar" data-controller="new-form">
+  <li><%= link_to "Home", posts_path %></li>
+  <li><%= link_to "New update", "#", data: { action: "click->new-form#show" }%></li>
+  <div class="new-form-container hide"
+      data-new-form-target="form">
+      <%= render partial: 'posts/new_form', post: @post %>
+    </div>
+  <%# Filter posts by tags %>
+  <%# Get to be connected %>
+  <li><%= link_to "Tags", tags_path %></li>
+  <%# Filter posts belonging to current user %>
+  <%# Get to be connected %>
+  <li><%= link_to "My updates", updates_path %></li>
+</ul>

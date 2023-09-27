@@ -1,0 +1,7 @@
+<div class="container">
+  <h1><%= @tag.name %></h1>
+  <% @posts.each do |post| %>
+    <%= render 'partials/post_card', post: post %>
+  <% end %>
+  <%= link_to 'Add an update', new_post_path %>
+</div>

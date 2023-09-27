@@ -1,0 +1,7 @@
+<div class="container">
+  <h1>All my updates</h1>
+  <% @posts.each do |post| %>
+    <%= render 'partials/post_card', posts: post %>
+  <% end %>
+</div>
+<%= console %>

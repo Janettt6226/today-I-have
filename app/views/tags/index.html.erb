@@ -1,0 +1,10 @@
+<%= render 'partials/filter_bar', posts: @post %>
+<div class="container">
+  <h1>All tags</h1>
+  <% @tags.each do |tag_name| %>
+    <ul>
+      <li><%= link_to tag_name, tag_path(tag_name) %></li>
+    </ul>
+  <% end %>
+</div>
+<%= console %>

@@ -1,21 +1,4 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path 'banner-today-i-have.jpeg' %>);">
-  <h1>Today I have</h1>
-</div>
-<ul class="filter-bar" data-controller="new-form">
-  <li><%= link_to "Home", posts_path %></li>
-  <li><%= link_to "New update", "#", data: { action: "click->new-form#show" }%></li>
-  <div class="new-form-container hide"
-       data-new-form-target="form">
-      <%= render partial: 'new_form', post: @post %>
-    </div>
-  <%# Filter posts by tags %>
-  <%# Get to be connected %>
-  <li>Tags</li>
-  <%# Filter posts belonging to current user %>
-  <%# Get to be connected %>
-  <li><%= link_to "My updates", "/" %></li>
-</ul>
-
+<%= render 'partials/filter_bar', posts: @posts %>
 <div class="container">
   <% @posts_grouped_by_date.keys.sort.reverse.each do |date| %>
     <% posts = @posts_grouped_by_date[date] %>

@@ -26,15 +26,17 @@ class PostsController < ApplicationController
         render :new, unprocessable_entity
       end
     else
-      puts 'Please sign in to add a post'
+      render :see_other, notice: 'Please sign in to add an update'
     end
   end
 
-  def edit; end
-
-  def update; end
-
-  def destroy; end
+  def updates
+    if user_signed_in?
+      @posts = current_user.posts.order(:date).reverse
+    else
+      render :see_other, notice: 'Please sign in to see your updates'
+    end
+  end
 
   private
 
