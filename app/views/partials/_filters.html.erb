@@ -1,0 +1,12 @@
+<%= form_tag(posts_path, method: :get) do %>
+  <%= label_tag :tag, "Filter by Tag:" %>
+  <%= select_tag :tag, options_for_select(Tag.pluck(:name), params[:tag]), include_blank: "Select a tag" %>
+  <%= submit_tag "Filter" %>
+<% end %>
+
+<%= form_tag(posts_path, method: :get) do %>
+  <%= label_tag :user, "Filter by people:" %>
+  <%= select_tag :user, options_for_select(User.pluck(:username), params[:user]), include_blank: "Select someone" %>
+  <%= submit_tag "Filter" %>
+<% end %>
+

@@ -3,16 +3,20 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[show destroy edit update]
 
   def index
-    @posts = Post.all.reverse
+    @tag = Tag.find_by(name: params[:tag])
+    @user = User.find_by(username: params[:user])
+    if @tag
+      @posts = @tag.posts
+    elsif @user
+      @posts = @user.posts
+    else
+      @posts = Post.all.reverse
+    end
     @posts_grouped_by_date = @posts.group_by { |post| post.date.to_date }
     @post = Post.new
   end
 
   def show; end
-
-  # def new
-  #   @post = Post.new
-  # end
 
   def create
     if user_signed_in?
@@ -36,6 +40,7 @@ class PostsController < ApplicationController
     else
       render :see_other, notice: 'Please sign in to see your updates'
     end
+    @post = Post.new
   end
 
   private

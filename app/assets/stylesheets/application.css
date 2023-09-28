@@ -28,4 +28,6 @@
  @import "components/banner";
  @import "components/modal";
  @import "components/post_card";
- @import "components/_form.scss"
+ @import "components/_form.scss";
+ @import "components/filter_tags";
+ @import "components/navbar"

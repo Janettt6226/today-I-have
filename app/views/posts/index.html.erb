@@ -1,5 +1,6 @@
-<%= render 'partials/filter_bar', posts: @posts %>
+<%= render 'partials/navbar', posts: @posts %>
 <div class="container">
+  <%= render 'partials/filters', posts: @posts %>
   <% @posts_grouped_by_date.keys.sort.reverse.each do |date| %>
     <% posts = @posts_grouped_by_date[date] %>
     <h2 class="section-title">

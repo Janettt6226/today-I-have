@@ -3,6 +3,8 @@ class TagsController < ApplicationController
   def index
     @tags = Tag.distinct.pluck(:name)
     @post = Post.new
+    @tag = Tag.find_by(params[:id])
+    @posts = @tag.posts
   end
 
   def show
