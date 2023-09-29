@@ -14,6 +14,7 @@ class PostsController < ApplicationController
     end
     @posts_grouped_by_date = @posts.group_by { |post| post.date.to_date }
     @post = Post.new
+    @new_tag = Tag.new
   end
 
   def show; end
@@ -46,7 +47,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :user_id, :date)
+    params.require(:post).permit(:title, :content, :user_id, :date, tags_attributes: %i[id name])
   end
 
   def set_post

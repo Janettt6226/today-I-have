@@ -1,11 +1,16 @@
 <div class="form-background">
-  <h2>Add a new update</h2>
+  <h2>Add an update</h2>
   <%= simple_form_for @post do |f| %>
     <%= f.input :title, label: 'Title' %>
-    <%= f.input :content %>
-    <%# Unique tags name %>
-    <h3>Select tags</h3>
-    <%= f.collection_check_boxes :tag_ids, Tag.all.order(:name), :id, :name%>
+    <%= f.input :content, label: 'Description' %>
+    <h3>Select tag(s) or create a new one</h3>
+    <%= f.fields_for :tags do |tag_form| %>
+      <%= tag_form.collection_check_boxes :id, Tag.all.order(:name), :id, :name %>
+      <%= tag_form.input :name, label: 'New Tag Name' %>
+    <% end %>
+    <%# <%= f.collection_check_boxes :tag_ids, Tag.all.order(:name), :id, :name%> %>
+    <%# <%= render 'tags/new_tag_form', tag: @new_tag %> %>
+    <%# <%= f.input :name, label: "new tag" %> %>
     <%= f.button :submit, 'Add update', class: 'btn btn-primary' %>
   <% end %>
 </div>
